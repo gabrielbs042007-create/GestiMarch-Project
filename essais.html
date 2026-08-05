@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Démo interactions JS — GestiMarché</title>
+<style>
+  :root {
+    --vert-foret: #1b4332;
+    --vert-clair: #40916c;
+    --ambre: #e9a23b;
+    --fond: #f4f6f4;
+    --texte: #1b1b1b;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, "Segoe UI", sans-serif;
+    background: var(--fond);
+    color: var(--texte);
+    margin: 0;
+    padding: 3rem 1.5rem;
+  }
+
+  h1 { color: var(--vert-foret); }
+  h2 { color: var(--vert-foret); margin-top: 3rem; border-bottom: 2px solid var(--ambre); padding-bottom: .3rem;}
+  p.explication { color: #555; max-width: 700px; }
+
+  /* ========================================================= */
+  /* 1. APPARITION ANIMEE AU CHARGEMENT / AU SCROLL             */
+  /* ========================================================= */
+
+  .grille-produits {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .carte-produit {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+
+    /* Etat de depart : invisible et legerement decale vers le bas */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .5s ease, transform .5s ease, box-shadow .2s ease;
+  }
+
+  /* Cette classe est ajoutee en JS quand l'element doit apparaitre */
+  .carte-produit.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .carte-produit:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    transform: translateY(-4px);
+  }
+
+  .carte-produit .prix { color: var(--ambre); font-weight: bold; }
+
+  /* ========================================================= */
+  /* 2. MODALE "ZOOM" AVEC FLOU DE L'ARRIERE-PLAN                */
+  /* ========================================================= */
+
+  /* On floute tout le contenu de la page quand la modale est ouverte */
+  #contenu-page.flou {
+    filter: blur(5px);
+    transition: filter .3s ease;
+  }
+  #contenu-page { transition: filter .3s ease; }
+
+  .fond-modale {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+
+    /* Cache par defaut */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+  }
+
+  .fond-modale.ouverte {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .boite-modale {
+    background: white;
+    border-radius: 14px;
+    padding: 2rem;
+    width: min(420px, 90vw);
+    box-shadow: 0 20px 50px rgba(0,0,0,.25);
+
+    /* Anime en "grossissement" a partir d'une petite echelle */
+    transform: scale(.85);
+    transition: transform .25s ease;
+  }
+
+  .fond-modale.ouverte .boite-modale {
+    transform: scale(1);
+  }
+
+  .boite-modale h3 { margin-top: 0; color: var(--vert-foret); }
+  .boite-modale .btn-fermer {
+    margin-top: 1.5rem;
+    background: var(--vert-foret);
+    color: white;
+    border: none;
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .boite-modale .btn-fermer:hover { background: var(--vert-clair); }
+
+  /* ========================================================= */
+  /* 3. BONUS — RIPPLE (onde) AU CLIC SUR UN BOUTON              */
+  /* ========================================================= */
+
+  .btn-ripple {
+    position: relative;
+    overflow: hidden;
+    background: var(--ambre);
+    color: #3a2705;
+    border: none;
+    padding: .7rem 1.4rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .onde {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,.6);
+    transform: scale(0);
+    animation: expansion-onde .6s linear;
+    pointer-events: none;
+  }
+
+  @keyframes expansion-onde {
+    to { transform: scale(3); opacity: 0; }
+  }
+
+</style>
+</head>
+<body>
+
+<div id="contenu-page">
+  <h1>Démo — rendre GestiMarché plus vivant</h1>
+  <p class="explication">
+    Trois techniques que tu peux réutiliser directement dans tes pages :
+    apparition animée au scroll, modale "zoom" avec flou d'arrière-plan,
+    et un petit effet de clic (ripple). Ouvre la console pour lire les commentaires du code source.
+  </p>
+
+  <h2>1. Apparition animée des produits</h2>
+  <p class="explication">
+    Les cartes ci-dessous sont invisibles au départ (<code>opacity:0</code>).
+    Un <code>IntersectionObserver</code> détecte quand chacune entre dans l'écran
+    et lui ajoute la classe <code>.visible</code>, ce qui déclenche la transition CSS.
+  </p>
+
+  <div class="grille-produits" id="grille-produits">
+    <!-- Les cartes sont generees en JS plus bas pour garder le HTML court -->
+  </div>
+
+  <h2>2. Fiche produit en grand plan (modale + flou)</h2>
+  <p class="explication">
+    Clique sur une carte ci-dessus : elle ouvre une fiche détaillée au-dessus
+    de tout, pendant que le reste de la page est flouté avec <code>filter: blur()</code>.
+  </p>
+
+  <h2>3. Bonus — effet "ripple" au clic</h2>
+  <button class="btn-ripple" id="btn-demo">Valider le réapprovisionnement</button>
+
+</div>
+
+<!-- La modale est en dehors de #contenu-page pour ne jamais etre floutee -->
+<div class="fond-modale" id="fond-modale">
+  <div class="boite-modale">
+    <h3 id="modale-titre">Nom du produit</h3>
+    <p id="modale-desc">Description du produit ici.</p>
+    <p class="prix" id="modale-prix" style="color: var(--ambre); font-weight:bold;"></p>
+    <button class="btn-fermer" id="btn-fermer">Fermer</button>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// DONNEES D'EXEMPLE (dans GestiMarché, ca viendrait de ta BD)
+// ============================================================
+const produits = [
+  { nom: "Riz local 5kg", prix: "12 000 FBu", desc: "Sac de riz produit localement, qualite superieure." },
+  { nom: "Huile de palme 1L", prix: "6 500 FBu", desc: "Huile de palme rouge, pressee a froid." },
+  { nom: "Sucre en poudre 1kg", prix: "3 200 FBu", desc: "Sucre blanc raffine, sachet d'1kg." },
+  { nom: "Farine de manioc 2kg", prix: "5 000 FBu", desc: "Farine de manioc finement moulue." },
+  { nom: "Savon local", prix: "1 500 FBu", desc: "Savon artisanal, parfum citronnelle." },
+  { nom: "Haricots rouges 1kg", prix: "4 800 FBu", desc: "Haricots secs, recolte recente." },
+];
+
+const grille = document.getElementById('grille-produits');
+
+// On construit les cartes dynamiquement
+produits.forEach((p, index) => {
+  const carte = document.createElement('div');
+  carte.className = 'carte-produit';
+  carte.innerHTML = `
+    <h3>${p.nom}</h3>
+    <p class="prix">${p.prix}</p>
+  `;
+  // On stocke les infos sur l'element lui-meme pour les reutiliser au clic
+  carte.dataset.nom = p.nom;
+  carte.dataset.desc = p.desc;
+  carte.dataset.prix = p.prix;
+
+  carte.addEventListener('click', () => ouvrirModale(p));
+  grille.appendChild(carte);
+});
+
+// ============================================================
+// 1. APPARITION ANIMEE (IntersectionObserver)
+// ============================================================
+// Cet observateur "regarde" chaque carte et reagit quand elle
+// devient visible a l'ecran (ex: quand on scrolle vers elle).
+const observateur = new IntersectionObserver((entrees) => {
+  entrees.forEach((entree) => {
+    if (entree.isIntersecting) {
+      entree.target.classList.add('visible');
+      // Une fois apparue, on arrete de l'observer (pas besoin de repeter)
+      observateur.unobserve(entree.target);
+    }
+  });
+}, {
+  threshold: 0.15 // se declenche quand 15% de la carte est visible
+});
+
+// On observe chaque carte creee ci-dessus
+document.querySelectorAll('.carte-produit').forEach((carte, i) => {
+  // Petit decalage (stagger) pour un effet de vague plutot que tout d'un coup
+  carte.style.transitionDelay = `${i * 60}ms`;
+  observateur.observe(carte);
+});
+
+// ============================================================
+// 2. MODALE EN GRAND PLAN + FLOU DE L'ARRIERE-PLAN
+// ============================================================
+const contenuPage = document.getElementById('contenu-page');
+const fondModale = document.getElementById('fond-modale');
+const modaleTitre = document.getElementById('modale-titre');
+const modaleDesc = document.getElementById('modale-desc');
+const modalePrix = document.getElementById('modale-prix');
+
+function ouvrirModale(produit) {
+  modaleTitre.textContent = produit.nom;
+  modaleDesc.textContent = produit.desc;
+  modalePrix.textContent = produit.prix;
+
+  fondModale.classList.add('ouverte');   // fait apparaitre + zoomer la boite
+  contenuPage.classList.add('flou');     // floute tout le reste
+  document.body.style.overflow = 'hidden'; // empeche le scroll derriere
+}
+
+function fermerModale() {
+  fondModale.classList.remove('ouverte');
+  contenuPage.classList.remove('flou');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('btn-fermer').addEventListener('click', fermerModale);
+
+// Fermer en cliquant sur le fond sombre (mais pas sur la boite elle-meme)
+fondModale.addEventListener('click', (e) => {
+  if (e.target === fondModale) fermerModale();
+});
+
+// Fermer avec la touche Echap (bonne pratique d'accessibilite)
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') fermerModale();
+});
+
+// ============================================================
+// 3. BONUS — EFFET RIPPLE AU CLIC
+// ============================================================
+document.getElementById('btn-demo').addEventListener('click', function(e) {
+  const bouton = e.currentTarget;
+  const rect = bouton.getBoundingClientRect();
+
+  const onde = document.createElement('span');
+  const taille = Math.max(rect.width, rect.height);
+
+  onde.className = 'onde';
+  onde.style.width = onde.style.height = taille + 'px';
+  onde.style.left = (e.clientX - rect.left - taille / 2) + 'px';
+  onde.style.top = (e.clientY - rect.top - taille / 2) + 'px';
+
+  bouton.appendChild(onde);
+
+  // On retire l'element une fois l'animation terminee (nettoyage du DOM)
+  onde.addEventListener('animationend', () => onde.remove());
+});
+</script>
+
+</body>
+</html>

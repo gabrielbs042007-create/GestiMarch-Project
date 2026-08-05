@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paramètres — GestiMarché</title>
+<link rel="stylesheet" href="/ADD/css/style.css">
+<link rel="stylesheet" href="./src/output.css">
+</head>
+<body>
+<div class="voile-barre-laterale"></div>
+<div class="application">
+  <div id="sidebar">
+     
+  </div>
+
+<!-- ================== PRINCIPALE ============================ -->
+  
+<div id="principal" class="principal">
+    <header class="h-16 bg-white  border-b border-b-gray-500/35 flex items-center justify-between gap-4 px-7 py-0 w-full ">
+      <div class="flex items-center gap-12">
+        <button id="ouvert" class="bouton-icone burger" aria-label="Ouvrir le menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <button id="fermer" class=" bouton-icone">◀</button>
+        <div class="titre-barre-superieure">
+          <span class="sur-titre">Aperçu général</span>
+          <h1 class="titre-page">Paramètres</h1>
+        </div>
+      </div>
+
+      <div class="zone-recherche">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Rechercher un produit, un client…">
+      </div>
+
+      <div class="actions-barre-superieure">
+        <button class="bouton-icone" aria-label="Notifications">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="point"></span>
+        </button>
+        <button id="themeBtn" class="theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="contenu">
+      <div class="grille-2">
+        <!-- Informations du supermarché -->
+        <div class="carte carte-pad">
+          <h3 style="font-family:sans-serif; font-size:14px; color:var(--ink); font-weight:700;">Informations générales</h3>
+          <p class="discret" style="font-size:12px; margin:2px 0 18px;">Ces informations apparaissent sur les tickets de caisse</p>
+
+          <div class="champ">
+            <label for="param-nom">Nom du supermarché</label>
+            <input id="param-nom" type="text" class="saisie" value="Supermarché GestiMarché">
+          </div>
+          <div class="ligne-formulaire">
+            <div class="champ">
+              <label for="param-devise">Devise</label>
+              <select id="param-devise" class="saisie">
+                <option>FBu — Franc burundais</option>
+                <option>USD — Dollar américain</option>
+                <option>EUR — Euro</option>
+              </select>
+            </div>
+            <div class="champ">
+              <label for="param-taxe">Taux de taxe (%)</label>
+              <input id="param-taxe" type="number" class="saisie" value="18">
+            </div>
+          </div>
+          <div class="champ">
+            <label for="param-adresse">Adresse</label>
+            <input id="param-adresse" type="text" class="saisie" value="Avenue du Commerce, Bujumbura">
+          </div>
+          <div class="champ" style="margin-bottom:0;">
+            <label for="param-tel">Téléphone</label>
+            <input id="param-tel" type="text" class="saisie" value="+257 22 240 000">
+          </div>
+        </div>
+
+        <!-- Seuils d'alerte de stock -->
+        <div class="carte carte-pad">
+          <h3 style="font-family:sans-serif; font-size:14px; color:var(--ink); font-weight:700;">Seuils d'alerte de stock</h3>
+          <p class="discret" style="font-size:12px; margin:2px 0 18px;">Déclenchent les badges « Stock faible » et « Rupture »</p>
+
+          <div class="ligne-formulaire">
+            <div class="champ">
+              <label for="param-seuil-defaut">Seuil par défaut (unités)</label>
+              <input id="param-seuil-defaut" type="number" class="saisie" value="10">
+            </div>
+            <div class="champ">
+              <label for="param-seuil-critique">Seuil critique (rupture)</label>
+              <input id="param-seuil-critique" type="number" class="saisie" value="0">
+            </div>
+          </div>
+          <label class="ligne-case" style="margin-bottom:14px;">
+            <input type="checkbox" checked> Notifier par e-mail en cas de rupture
+          </label>
+          <label class="ligne-case" style="margin-bottom:14px;">
+            <input type="checkbox" checked> Afficher les alertes sur le tableau de bord
+          </label>
+
+          <div class="separateur-pointille"></div>
+          <h3 style="font-family:sans-serif; font-size:13.5px; color:rgb(136, 126, 126); font-weight:700;">Sauvegarde des données</h3>
+          <p class="discret" style="font-size:12px; margin:4px 0 14px;">Exportez régulièrement vos données locales</p>
+          <div class="flex ecart-12">
+            <button class="bouton bouton-contour bouton-petit">Exporter (JSON)</button>
+            <button class="bouton bouton-contour bouton-petit">Restaurer une sauvegarde</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gestion des utilisateurs -->
+      <div class="carte marge-24">
+        <div class="carte-entete">
+          <div><h3>Comptes utilisateurs</h3><p>Réservé à l'administrateur</p></div>
+          <button class="bouton bouton-primaire bouton-petit">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Ajouter un utilisateur
+          </button>
+        </div>
+        <div class="tableau-conteneur">
+          <table>
+            <thead><tr><th>Utilisateur</th><th>Identifiant</th><th>Rôle</th><th>Statut</th><th></th></tr></thead>
+            <tbody>
+              <tr>
+                <td><div class="cellule-produit"><div class="avatar-utilisateur" style="background:var(--mango);">AN</div>Aline Ndayishimiye</div></td>
+                <td class="mono">a.ndayishimiye</td>
+                <td><span class="pastille-role">Administrateur</span></td>
+                <td><span class="etiquette etiquette-ok">Actif</span></td>
+                <td><button class="bouton bouton-fantome bouton-petit">Modifier</button></td>
+              </tr>
+              <tr>
+                <td><div class="cellule-produit"><div class="avatar-utilisateur" style="background:var(--leaf);">PB</div>Prosper Barenzi</div></td>
+                <td class="mono">p.barenzi</td>
+                <td><span class="pastille-role" style="background:var(--leaf);">Gest. stock</span></td>
+                <td><span class="etiquette etiquette-ok">Actif</span></td>
+                <td><button class="bouton bouton-fantome bouton-petit">Modifier</button></td>
+              </tr>
+              <tr>
+                <td><div class="cellule-produit"><div class="avatar-utilisateur" style="background:var(--tomato);">CM</div>Chantal Musoni</div></td>
+                <td class="mono">c.musoni</td>
+                <td><span class="pastille-role" style="background:var(--mango); color:#5c3d00;">Caissière</span></td>
+                <td><span class="etiquette etiquette-neutre">Suspendu</span></td>
+                <td><button class="bouton bouton-fantome bouton-petit">Modifier</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="flex justifie-entre marge-24" style="margin-bottom:8px;">
+        <button class="bouton bouton-contour">Annuler</button>
+        <button class="bouton bouton-primaire">Enregistrer les modifications</button>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="/ADD/js/index.js"></script>
+<script type="module" src="/ADD/js/aside.js"></script>
+
+</body>
+</html>

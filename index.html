@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connexion — GestiMarché</title>
+<!-- <link rel="stylesheet" href="./ADD/css/style.css"> -->
+<link rel="stylesheet" href="./src/output.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+ID:wght@100..400&display=swap');
+
+  body{
+    background-color: rgb(23, 64, 23);
+    background-image: repeating-linear-gradient(90deg, rgba(230, 222, 222, 0.064) 0 2px, transparent 2px 64px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 2px, transparent 2px 64px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    padding: 0 10px;
+  }
+  aside{
+    background:
+      radial-gradient(120% 140% at 0% 0%, rgba(46,158,91,.55), transparent 55%),
+      linear-gradient(165deg, rgb(35, 76, 35) 0%, rgb(23, 64, 23) 100%);
+  }
+  
+.coment{
+  font-family: "Playwrite ID", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+  @media (max-width: 760px){
+    .cadre{
+      grid-template-columns: 1fr; 
+    }
+    .visuel{
+      display:none; 
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="w-full grid grid-cols-[1.05fr_1fr] max-w-230 bg-white rounded-2xl overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,.35)] cadre">
+    <aside class="text-2xl font-semibold flex flex-col justify-between p-5 relative text-white visuel">
+      <div>
+        <div class="py-0 flex items-center gap-3 px-2 mb-5">
+          <div class="bg-green-600 text-white w-9 h-8.5 text-[17px] rounded-[9px] flex justify-center items-center ">GM</div>
+          <div>
+            <div class="font-medium ">GestiMarché</div>
+            <div class="uppercase text-[10.5px] text-gray-300 mt-1">Point de vente & stock</div>
+          </div>
+        </div>
+        <p class="mt-14 text-[28px] leading-[1.3] text-green-950 coment">Logiciel de gestion <br> pour commerces et boutiques</p>
+        <p class="mt-14 text-[18px]  text-gray-300 text-center leading-8  comente">Produits, stock, caisse, clients et fournisseurs <br> — centralisés, à jour, accessibles à toute l'équipe.</p>
+        <!-- <svg class="mt-7 ml-35 w-36 h-36 text-center" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path d="M695.5 112.5h-391c-.6 82-67.2 148.3-149.5 149v241c0 190.5 345 385 345 385s345-194.5 345-385v-241c-82.3-.7-149-67-149.5-149Z" fill="#23704858"></path></svg> -->
+      </div>
+      <p class="text-gray-100/10 text-center text-[12px]">@gabriel_bs</p>
+    </aside>
+
+    <!-- ---------==== FORMULAIRE ===--------------- -->
+    <div class="py-11 px-10 flex flex-col justify-center">
+      <h2 class="text-2xl mt-1.5 font-[arial]">Connexion à votre compte</h2>
+      <p class="text-[13.5px] mt-2 mb-6.5 ">Choisissez votre rôle puis saisissez vos identifiants pour accéder à votre espace.</p>
+
+      <form id="login-form" class="flex flex-col" action="#" method="post">
+        <div class="flex gap-2 mb-5 bg-amber-100 p-1.5 rounded-[10px] " role="radiogroup" aria-label="Rôle">
+          <label class="flex-1">
+            <input class="hidden peer"  type="radio" name="role" value="admin" checked>
+              <span class="block text-center py-2 px-1.5 rounded-lg text-[12.5px] font-semibold text-olive-500 cursor-pointer
+                            peer-checked:bg-white peer-checked:text-green-900 peer-checked:rounded-md">
+                Administrateur</span></label>
+          <label class="flex-1">
+            <input class="hidden peer"  type="radio" name="role" value="stock">
+              <span class="block text-center py-2 px-1.5 rounded-lg text-[12.5px] font-semibold text-olive-500 cursor-pointer
+                            peer-checked:bg-white peer-checked:text-green-900 peer-checked:rounded-md">
+                Gest. stock</span></label>
+          <label class="">
+            <input class="hidden peer"  type="radio" name="role" value="caissier">
+              <span class="block text-center py-2 px-1.5 rounded-lg text-[12.5px] font-semibold text-olive-500 cursor-pointer
+                            peer-checked:bg-white peer-checked:text-green-900 peer-checked:rounded-md">
+                Caissier(ère)</span></label>
+        </div>
+
+        <div class="mb-4">
+          <label for="identifiant" class="block text-sm font-medium text-green-900 mb-1.5">Identifiant ou e-mail</label>
+          <div class="relative">
+            <svg class="absolute right-2.5 top-[33%] text-gray-500 " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6 12 13 2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            <input class="w-full py-2.5 px-4 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-green-500 placeholder:ml-4" type="text" id="identifiant" placeholder="gestimarche@gmail.com" required>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="mot-de-passe" class="block text-sm font-medium text-green-900 mb-1.5">Mot de passe</label>
+          <div class="relative">
+            <svg class="absolute right-2.5 top-[33%] text-gray-500 " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input  class="w-full py-2.5 px-4 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-green-500 placeholder:ml-4" type="password" id="mot-de-passe" placeholder=" ******** " required>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between mt-1 mb-5.5 ">
+          <label class="ligne-case"><input type="checkbox"> Se souvenir de moi</label>
+          <a href="#" class="text-sm text-green-600 hover:text-green-800">Mot de passe oublié ?</a>
+        </div>
+
+        <button type="submit" class="flex justify-center items-center bg-green-600 py-2.5 px-4 rounded-2xl cursor-pointer text-amber-50 transition duration-300 hover:scale-110 hover:bg-green-700 w-full ">Se connecter</button>
+      </form>
+    </div>
+  </div>
+
+<script src="./ADD/js/index.js"></script>
+</body>
+</html>

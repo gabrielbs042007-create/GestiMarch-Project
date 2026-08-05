@@ -1,0 +1,24 @@
+    {
+        "Administrateur": {
+            "nom": "Gabriel",
+            "prenom": "BS",
+            "email": "gabrielbs042007@gmail.com",
+            "password": "Admin@password",
+            "photo": "ADD/img/photoAdmin.jpg"
+        },
+        "Caissier": {
+            "nom": "John",
+            "prenom": "Doe",
+            "email": "john.doe@gmail.com",
+            "password": "Caisse@password",
+            "photo": "ADD/img/photoCaissiere.jpg"
+        },
+        "Gestionnaire":{
+            "nom": "Patrick",
+            "prenom" : "Assan",
+            "email" : "patrickassan@gmail.com",
+            "password" : "Stock@password",
+            "photo" : "ADD/img/photoGestionnaire.jpg"
+        }
+
+    }

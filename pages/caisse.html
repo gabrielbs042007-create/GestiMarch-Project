@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caisse — GestiMarché</title>
+<link rel="stylesheet" href="/ADD/css/style.css">
+<link rel="stylesheet" href="/src/output.css">
+</head>
+<body>
+<div class="voile-barre-laterale"></div>
+<div class="application">
+  <div id="sidebar">
+     
+  </div>
+  
+  <!-- ================== principal ============== -->
+  <div id="principal" class="principal">
+    <header class="h-16 bg-white  border-b border-b-gray-500/35 flex items-center justify-between gap-4 px-7 py-0 w-full ">
+      <div class="flex items-center gap-12">
+        <button id="ouvert" class="bouton-icone burger" aria-label="Ouvrir le menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <button id="fermer" class=" bouton-icone">◀</button>
+        <div class="titre-barre-superieure">
+          <span class="sur-titre">Aperçu général</span>
+          <h1 class="titre-page">Caisse</h1>
+        </div>
+      </div>
+
+      <div class="zone-recherche">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Rechercher un produit, un client…">
+      </div>
+
+      <div class="actions-barre-superieure">
+        <button class="bouton-icone" aria-label="Notifications">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="point"></span>
+        </button>
+        <button id="themeBtn" class="theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="contenu">
+      <div class="disposition-caisse">
+
+        <!-- Recherche produits -->
+        <div>
+          <div class="zone-recherche" style="width:100%; margin-bottom:16px; padding:11px 14px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="recherche-caisse" placeholder="Rechercher un produit ou scanner un code-barres…">
+          </div>
+
+          <div class="filtres marge-8" style="margin-bottom:16px;">
+            <span class="puce-filtre" style="background:green; color:#fff; border-color:var(--forest-deep);">Tous</span>
+            <span class="puce-filtre">Épicerie</span>
+            <span class="puce-filtre">Boissons</span>
+            <span class="puce-filtre">Hygiène</span>
+            <span class="puce-filtre">Frais</span>
+          </div>
+
+          <div class="grille-produits" id="grille-produits">
+            <button class="article-caisse" data-nom="Huile végétale 1L" data-prix="1500" data-emoji="🧴">
+              <span class="article-emoji">🧴</span>
+              <span class="article-nom">Huile végétale 1L</span>
+              <span class="article-prix mono">1 500 FBu</span>
+            </button>
+            <button class="article-caisse" data-nom="Riz parfumé 5kg" data-prix="4250" data-emoji="🍚">
+              <span class="article-emoji">🍚</span>
+              <span class="article-nom">Riz parfumé 5kg</span>
+              <span class="article-prix mono">4 250 FBu</span>
+            </button>
+            <button class="article-caisse" data-nom="Savon de ménage x3" data-prix="900" data-emoji="🧼">
+              <span class="article-emoji">🧼</span>
+              <span class="article-nom">Savon de ménage x3</span>
+              <span class="article-prix mono">900 FBu</span>
+            </button>
+            <button class="article-caisse" data-nom="Jus d'ananas 1L" data-prix="1400" data-emoji="🥤">
+              <span class="article-emoji">🥤</span>
+              <span class="article-nom">Jus d'ananas 1L</span>
+              <span class="article-prix mono">1 400 FBu</span>
+            </button>
+            <button class="article-caisse" data-nom="Tomate concentrée" data-prix="650" data-emoji="🥫">
+              <span class="article-emoji">🥫</span>
+              <span class="article-nom">Tomate concentrée</span>
+              <span class="article-prix mono">650 FBu</span>
+            </button>
+            <button class="article-caisse" data-nom="Papier hygiénique x4" data-prix="2100" data-emoji="🧻">
+              <span class="article-emoji">🧻</span>
+              <span class="article-nom">Papier hygiénique x4</span>
+              <span class="article-prix mono">2 100 FBu</span>
+            </button>
+            <button class="article-caisse" data-nom="Pain de mie" data-prix="1800" data-emoji="🍞">
+              <span class="article-emoji">🍞</span>
+              <span class="article-nom">Pain de mie</span>
+              <span class="article-prix mono">1 800 FBu</span>
+            </button>
+            <button class="article-caisse" data-nom="Œufs (plateau de 30)" data-prix="9500" data-emoji="🥚">
+              <span class="article-emoji">🥚</span>
+              <span class="article-nom">Œufs (plateau de 30)</span>
+              <span class="article-prix mono">9 500 FBu</span>
+            </button>
+            <button class="article-caisse" data-nom="Thé en sachets x25" data-prix="2300" data-emoji="🍵">
+              <span class="article-emoji">🍵</span>
+              <span class="article-nom">Thé en sachets x25</span>
+              <span class="article-prix mono">2 300 FBu</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Ticket de caisse -->
+        <aside class="ticket ticket-caisse">
+          <div class="carte-entete">
+            <div>
+              <h3>Panier en cours</h3>
+            </div>
+            <button class="bouton bouton-fantome bouton-petit" id="vider-panier">Vider</button>
+          </div>
+
+          <div class="panier" id="panier">
+            <p class="discret" id="panier-vide" style="font-size:12.5px; text-align:center; padding:30px 10px;">
+              Le panier est vide.<br>Sélectionnez un produit à gauche.
+            </p>
+          </div>
+
+          <div class="resume-caisse">
+            <div class="flex justifie-entre" style="font-size:13px; margin-bottom:6px;">
+              <span class="attenue">Sous-total</span><span class="mono" id="sous-total">0 FBu</span>
+            </div>
+            <div class="flex justifie-entre" style="font-size:13px; margin-bottom:6px;">
+              <span class="attenue">Remise</span><span class="mono">0 FBu</span>
+            </div>
+            <div class="separateur-pointille"></div>
+            <div class="flex justifie-entre" style="font-size:18px; font-weight:700; color:var(--forest-deep);">
+              <span>Total</span><span class="mono" id="total-general">0 FBu</span>
+            </div>
+          </div>
+
+          <div class="ligne-formulaire">
+            <div class="champ">
+              <label for="montant-recu">Montant reçu</label>
+              <input id="montant-recu" type="number" class="saisie" placeholder="0">
+            </div>
+            <div class="champ">
+              <label>Monnaie à rendre</label>
+              <input type="text" class="saisie mono" id="monnaie-rendue" value="0 FBu" readonly>
+            </div>
+          </div>
+
+          <button class="bouton bouton-primaire bouton-bloc" style="padding:14px;">
+            Valider & imprimer le ticket
+          </button>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="/ADD/js/index.js"></script>
+<script type="module" src="/ADD/js/aside.js"></script>
+<script src="/ADD/js/caisse.js"></script>
+</body>
+</html>
