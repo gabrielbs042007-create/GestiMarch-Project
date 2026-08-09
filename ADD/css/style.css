@@ -26,7 +26,7 @@ h1,h2,h3,h4{
 /* #pages */
 .application{
   display: grid;
-  grid-template-columns: 236px 1fr;
+  grid-template-columns: 250px 1fr;
   min-height: 100vh;
 }
 
@@ -226,10 +226,9 @@ h1,h2,h3,h4{
 .contenu{
   padding: 20px;
   flex:1;
+
 }
 
-
-   /* =================== Composants =================== */
    
 /* ---- Boutons ---- */
 .bouton{
@@ -411,7 +410,8 @@ body.dark #venteSemaine, body.dark #venteCategorie{
 table{ 
   width:100%; 
   border-collapse: collapse; 
-  font-size: 13.5px; }
+  font-size: 13.5px; 
+}
 thead th{
   text-align:left;
   font-size: 11px;
@@ -571,6 +571,7 @@ td.nombre, th.nombre{
   margin-top:24px;
 }
 .grille-2{ 
+  width:100%;
   display:grid; 
   grid-template-columns:1fr 1fr; 
   gap:20px; 
@@ -619,14 +620,14 @@ td.nombre, th.nombre{
   text-align:center;
   cursor:pointer;
   
-  transform: translateY(20px);
+  transform: translateY(10px);
   transition: opacity .5s ease, transform .5s ease, box-shadow .2s ease;
 }
 
 .article-caisse:hover{ 
   border-color: rgb(40, 171, 40); 
   box-shadow: 0 8px 20px rgba(0,0,0,.12);
-  transform: translateY(-4px); 
+  transform: translateY(1px); 
 }
 .article-caisse:active{ 
   transform: translateY(1px) scale(.99); 
@@ -732,6 +733,10 @@ td.nombre, th.nombre{
   margin-bottom:6px; 
 }
 
+.barre-inferieur{
+  display: none;
+}
+
 /* =================== THEME =====================*/
 
 
@@ -785,13 +790,14 @@ body.dark .saisie{
   color:white;
   background:#2c2c2c;
 }
+body.dark #cacher{
+  background: #eb0d0d;
+  color:white;
+}
 
 
-
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
-
+/* =============================== RESPONSIVE ================================ */
+  
 @media (max-width: 1180px){
   .disposition-caisse{ 
     grid-template-columns: 1fr; 
@@ -856,5 +862,40 @@ body.dark .saisie{
 
 /* ==================MOBILE PORTRAIT===================== */
 @media (max-width: 480px){
+
+  .grille-3{ 
+    grid-template-columns:1fr;
+  
+  }
   .grille-stats{ grid-template-columns: 1fr; }
+  .barre-inferieur{
+    width: 100%;
+    height: 8vh;
+    background-color: rgb(3, 30, 3);
+    position: fixed;
+    top: 93vh;
+    /* position: sticky; */
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 10px;
+
+  }
+
+  .body.dark .barre-inferieur{
+    background-color: #1e1e1e;
+  }
+  .barre-inferieur a{
+    color: white;
+  }
+  .barre-inferieur a:hover{
+    color: rgb(47, 202, 47);
+  }
+  #fermer{
+    display: none;
+  }
 }

@@ -113,9 +113,9 @@
         <aside class="ticket ticket-caisse">
           <div class="carte-entete">
             <div>
-              <h3>Panier en cours</h3>
+              <h3 style="color: rgb(13, 223, 27);">Panier en cours</h3>
             </div>
-            <button class="bouton bouton-fantome bouton-petit" id="vider-panier">Vider</button>
+            <button class="bouton bouton-fantome bouton-petit" style="box-shadow: 0 0 5px gray;" id="vider-panier">Vider</button>
           </div>
 
           <div class="panier" id="panier">
@@ -132,10 +132,10 @@
               <span class="attenue">Remise</span><span class="mono">0 FBu</span>
             </div>
             <div class="separateur-pointille"></div>
-            <div class="flex justifie-entre" style="font-size:18px; font-weight:700; color:var(--forest-deep);">
+            <div class="flex justifie-entre" style="font-size:18px; font-weight:700; color:green;">
               <span>Total</span><span class="mono" id="total-general">0 FBu</span>
             </div>
-          </div>
+          </div> 
 
           <div class="ligne-formulaire">
             <div class="champ">
@@ -156,6 +156,10 @@
     </main>
   </div>
 </div>
+
+<!-- ============ Lien de page pour MOBile ========= -->
+<div id="barreInf" class="barre-inferieur"></div>
+
 <script src="/ADD/js/index.js"></script>
 <script type="module" src="/ADD/js/aside.js"></script>
 <script src="/ADD/js/caisse.js"></script>

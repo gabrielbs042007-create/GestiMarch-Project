@@ -1,145 +1,48 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clients — GestiMarché</title>
-<link rel="stylesheet" href="/ADD/css/style.css">
-<link rel="stylesheet" href="/src/output.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/ADD/css/style.css">
+    <link rel="stylesheet" href="./src/output.css">
 </head>
 <body>
-<div class="voile-barre-laterale"></div>
-<div class="application">
-  <div id="sidebar">
-     
-  </div>
-
-  <!-- ====================== PRINCIPALE ============================== -->
-  <div id="principal" class="principal">
-    <header class="h-16 bg-white  border-b border-b-gray-500/35 flex items-center justify-between gap-4 px-7 py-0 w-full ">
-      <div class="flex items-center gap-12">
-        <button id="ouvert" class="bouton-icone burger" aria-label="Ouvrir le menu">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <button id="fermer" class=" bouton-icone">◀</button>
-        <div class="titre-barre-superieure">
-          <span class="sur-titre">Aperçu général</span>
-          <h1 class="titre-page">Clients</h1>
+    <div class="application" id="appli">
+        <div id="sidebar">
+            
         </div>
-      </div>
+        
+        <!-- ================== principal ============== -->
+        <div id="principal" class="principal">
+            <header class="h-16 bg-white  border-b border-b-gray-500/35 flex items-center justify-between gap-4 px-7 py-0 w-full ">
+                <div class="flex items-center gap-12">
+                    <button id="ouvert" class="bouton-icone burger" aria-label="Ouvrir le menu">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                    <button id="fermer" class=" bouton-icone">◀</button>
+                    <div class="titre-barre-superieure">
+                        <span class="sur-titre">Aperçu général</span>
+                        <h1 class="titre-page">Clients</h1>
+                    </div>
+                </div>
 
-      <div class="zone-recherche">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="text" placeholder="Rechercher un produit, un client…">
-      </div>
+                <div class="zone-recherche">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input type="text" placeholder="Rechercher un produit, un client…">
+                </div>
 
-      <div class="actions-barre-superieure">
-        <button class="bouton-icone" aria-label="Notifications">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          <span class="point"></span>
-        </button>
-        <button id="themeBtn" class="theme">🌙</button>
-      </div>
-    </header>
-
-    <main class="contenu">
-      <div class="barre-outils">
-        <div class="filtres">
-          <span class="puce-filtre">Tous les clients</span>
-          <span class="puce-filtre">Programme fidélité</span>
-        </div>
-        <button class="bouton bouton-primaire bouton-petit">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Nouveau client
-        </button>
-      </div>
-
-      <div class="grille-3" style="grid-template-columns:2fr 1fr; align-items:start;">
-        <div class="carte">
-          <div class="tableau-conteneur">
-            <table>
-              <thead>
-                <tr><th>Client</th><th>Contact</th><th class="nombre">Achats</th><th class="nombre">Points fidélité</th><th></th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><div class="cellule-produit"><div class="vignette-produit" style="background:rgb(29, 197, 29);">👩</div><div><div class="nom-produit">Espérance Bigirimana</div><div class="sous-texte-produit">Cliente depuis mars 2024</div></div></div></td>
-                  <td>+257 79 123 456</td>
-                  <td class="nombre">42</td>
-                  <td class="nombre">1 280</td>
-                  <td><button class="bouton bouton-contour bouton-petit">Voir la fiche</button></td>
-                </tr>
-                <tr>
-                  <td><div class="cellule-produit"><div class="vignette-produit" style="background:rgb(29, 197, 29);">👨</div><div><div class="nom-produit">Jean-Claude Niyonzima</div><div class="sous-texte-produit">Client depuis janvier 2023</div></div></div></td>
-                  <td>+257 76 987 654</td>
-                  <td class="nombre">118</td>
-                  <td class="nombre">3 940</td>
-                  <td><button class="bouton bouton-contour bouton-petit">Voir la fiche</button></td>
-                </tr>
-                <tr>
-                  <td><div class="cellule-produit"><div class="vignette-produit" style="background:rgb(29, 197, 29);">👩</div><div><div class="nom-produit">Divine Irakoze</div><div class="sous-texte-produit">Cliente depuis juin 2024</div></div></div></td>
-                  <td>+257 61 552 210</td>
-                  <td class="nombre">9</td>
-                  <td class="nombre">210</td>
-                  <td><button class="bouton bouton-contour bouton-petit">Voir la fiche</button></td>
-                </tr>
-                <tr>
-                  <td><div class="cellule-produit"><div class="vignette-produit" style="background:rgb(29, 197, 29);">👨</div><div><div class="nom-produit">Adrien Hakizimana</div><div class="sous-texte-produit">Client depuis février 2022</div></div></div></td>
-                  <td>+257 68 774 302</td>
-                  <td class="nombre">203</td>
-                  <td class="nombre">6 105</td>
-                  <td><button class="bouton bouton-contour bouton-petit">Voir la fiche</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                <div class="actions-barre-superieure">
+                    <button class="bouton-icone" aria-label="Notifications">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        <span class="point"></span>
+                    </button>
+                    <button id="themeBtn" class="theme">🌙</button>
+                </div>
+            </header>
         </div>
 
-        <!-- Fiche client détaillée -->
-        <div class="carte carte-pad">
-          <div class="flex elements-centres ecart-12">
-            <div class="vignette-produit" style="width:52px;height:52px;font-size:22px;background:rgb(29, 197, 29);">👨</div>
-            <div>
-              <div class="nom-produit" style="font-size:15px;">Jean-Claude Niyonzima</div>
-              <div class="sous-texte-produit" style="font-size:12px;">Client fidèle — Or</div>
-            </div>
-          </div>
-
-          <div class="separateur-pointille"></div>
-
-          <div class="flex justifie-entre marge-8" style="font-size:13px;">
-            <span class="attenue">Téléphone</span><span>+257 76 987 654</span>
-          </div>
-          <div class="flex justifie-entre marge-8" style="font-size:13px;">
-            <span class="attenue">E-mail</span><span>jc.niyonzima@mail.com</span>
-          </div>
-          <div class="flex justifie-entre marge-8" style="font-size:13px;">
-            <span class="attenue">Total dépensé</span><span class="mono">1 842 300 FBu</span>
-          </div>
-          <div class="flex justifie-entre marge-8" style="font-size:13px;">
-            <span class="attenue">Points fidélité</span><span class="mono" style="color:green; font-weight:700;">3 940 pts</span>
-          </div>
-
-          <div class="separateur-pointille"></div>
-          <h3 style="font-size:13px; font-family:sans-serif;">Derniers achats</h3>
-          <div class="flex justifie-entre marge-8" style="font-size:12.5px;">
-            <span class="attenue">13/07 — Vente #V-2288</span><span class="mono">14 300</span>
-          </div>
-          <div class="flex justifie-entre marge-8" style="font-size:12.5px;">
-            <span class="attenue">02/07 — Vente #V-2201</span><span class="mono">8 950</span>
-          </div>
-          <div class="flex justifie-entre marge-8" style="font-size:12.5px;">
-            <span class="attenue">28/06 — Vente #V-2154</span><span class="mono">21 700</span>
-          </div>
-
-          <button class="bouton bouton-contour bouton-bloc marge-16">Modifier la fiche</button>
-        </div>
-      </div>
-    </main>
-  </div>
-</div>
-<script src="assets/js/index.js"></script>
-<script type="module" src="/ADD/js/aside.js"></script>
-
+    <script src="/ADD/js/index.js"></script>
+    <script src="/ADD/js/aside.js"></script>
 </body>
 </html>

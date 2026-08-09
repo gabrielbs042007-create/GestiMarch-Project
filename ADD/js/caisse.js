@@ -3,12 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!grid) return; 
 
   const cartEl = document.getElementById('panier');
-  const emptyMsg = document.getElementById('panier-vide');
+  const msg = document.getElementById('panier-vide');
   const subtotalEl = document.getElementById('sous-total');
   const totalEl = document.getElementById('total-general');
   const recuInput = document.getElementById('montant-recu');
   const monnaieEl = document.getElementById('monnaie-rendue');
   const clearBtn = document.getElementById('vider-panier');
+  let chiffreJour = document.getElementById('chiffre-jour');
 
   let cart = [];
  
@@ -18,14 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   function render(){
     cartEl.querySelectorAll('.ligne-panier').forEach(r => r.remove());
-    emptyMsg.style.display = cart.length ? 'none' : 'block';
+    msg.style.display = cart.length ? 'none' : 'block';
 
     let subtotal = 0;
     cart.forEach((item, idx) => {
       subtotal += item.price * item.qty;
-      const row = document.createElement('div');
-      row.className = 'ligne-panier';
-      row.innerHTML = `
+      const ligneArt = document.createElement('div');
+      ligneArt.className = 'ligne-panier';
+      ligneArt .innerHTML = `
         <span style="font-size:20px;">${item.emoji}</span>
         <div style="flex:1; min-width:0;">
           <div class="ligne-panier-nom">${item.name}</div>
@@ -40,12 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
         <button type="button" class="bouton-retirer" data-action="remove" data-index="${idx}" aria-label="Retirer">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>`;
-      cartEl.appendChild(row);
+      cartEl.appendChild(ligneArt);
     });
 
     subtotalEl.textContent = format(subtotal);
     totalEl.textContent = format(subtotal);
     updateMonnaie(subtotal);
+    
   }
 
   function updateMonnaie(total){

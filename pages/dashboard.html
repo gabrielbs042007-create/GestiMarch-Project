@@ -48,12 +48,12 @@
       <div class="grille-stats">
         <div class="carte-stat accent-foret">
           <div class="libelle-stat">Chiffre d'affaires — aujourd'hui</div>
-          <div class="valeur-stat">312 400 <span style="font-size:13px;">FBu</span></div>
+          <div id="chiffre-jour" class="valeur-stat">--- --- <span style="font-size:13px;">FBu</span></div>
           <span class="variation-stat hausse">▲ 8,4% vs hier</span>
         </div>
         <div class="carte-stat">
           <div class="libelle-stat">Chiffre d'affaires — ce mois</div>
-          <div class="valeur-stat">6 918 200</div>
+          <div id="chiffre-mois" class="valeur-stat">6 918 200</div>
           <span class="variation-stat hausse">▲ 12,1% vs mois dernier</span>
         </div>
         <div class="carte-stat">
@@ -149,10 +149,13 @@
   </div>
 </div>
 
+<!-- ============ Lien de page pour MOBile ========= -->
+<div id="barreInf" class="barre-inferieur"></div>
 
 <script src="/ADD/js/index.js"></script>
 <script type="module" src="/ADD/js/aside.js"></script>
-<script src="/ADD/js/dashboard.js"></script>
+<script type="module" src="/ADD/js/dashboard.js"></script>
+<script src="/ADD/js/caisse.js"></script>
 
 </body>
 </html>

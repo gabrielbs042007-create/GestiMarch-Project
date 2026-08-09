@@ -1,5 +1,5 @@
 const sidebar = `
-<aside class="barre-laterale">
+<aside id="barre-laterale" class="barre-laterale">
     <div class="marque">
       <div class="marque-symbole">GM</div>
       <div>
@@ -57,10 +57,6 @@ const sidebar = `
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="13" y="8" width="3" height="10"/><rect x="19" y="5" width="3" height="13"/></svg>
           Rapports
         </a>
-        <a href="parametres.html" class="">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>
-          Paramètres
-        </a>
       </nav>
     </div>
 
@@ -77,13 +73,43 @@ const sidebar = `
 
 document.getElementById("sidebar").innerHTML = sidebar;
 
+const application = document.getElementById("appli");
 const fermerBtn = document.getElementById("fermer");
 const barreLat = document.getElementById("barre-laterale");
 fermerBtn.addEventListener("click", () => {
   barreLat.classList.toggle("cache");
   if (barreLat.classList.contains("cache")) {
     fermerBtn.textContent = "▶";
+    application.style.display = "grid";
+    application.style.gridTemplateColumns = "1fr";
   }else {
     fermerBtn.textContent = "◀";
+    application.style.display = "grid";
+    application.style.gridTemplateColumns = "250px 1fr";
   }
 });
+
+
+// ==================== BARRE DE NAVIGATION Pour  MOBILE =========================
+const barreInf = document.getElementById("barreInf")
+barreInf.innerHTML=`
+        <a href="/pages/dashboard.html" class="">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
+        </a>
+        <a href="/pages/caisse.html" class="">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.5 3h2l2.6 12.5a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 8H6"/></svg>
+        </a>
+        <a href="/pages/produits.html" class="">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
+        </a>
+        <a href="/pages/stock.html" class=" ">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 12 10 5 10-5"/><path d="m2 7 10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/></svg>
+        </a>
+        <a href="/pages/clients.html" class="">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </a>
+        <a href="/pages/fournisseurs.html" class="">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8Z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </a>
+
+`

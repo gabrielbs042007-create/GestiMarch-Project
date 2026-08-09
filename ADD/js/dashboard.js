@@ -1,12 +1,18 @@
-
-// =================    LES GRAPHIQUES    =================
-// Graphique des ventes par mois
-const ventesSemaine = [15,25,40,32,58,50,72];
-const chartSemaine =
-echarts.init(document.getElementById("venteSemaine"));
-
-const optionSemaine={
-    title:{
+// console.log("hello");
+fetch("/ADD/js/produits.json")
+.then(Response => Response.json())
+.then(produits => {
+    
+    
+    
+    // =================    LES GRAPHIQUES    =================
+    // Graphique des ventes par mois
+    const ventesSemaine = [15,25,40,32,58,50,72];
+    const chartSemaine =
+    echarts.init(document.getElementById("venteSemaine"));
+    
+    const optionSemaine={
+        title:{
         text:'Évolution des ventes',
         subtext: "7 derniers jours",
         textStyle:{
@@ -24,18 +30,18 @@ const optionSemaine={
         type:'category',
         data:['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi']
     },
-
+    
     yAxis:{
         type:'value'
     },
-
+    
     series:[{
         data:ventesSemaine,
         type:'line',
         smooth:true,
         areaStyle:{},
         lineStyle:{
-        width:6
+            width:6
         }
     }]
 
@@ -44,27 +50,29 @@ const optionSemaine={
 chartSemaine.setOption(optionSemaine);
 
 // Graphique des ventes par Catégories
-const categories = [
-    {
-        value:38,
-        name:'Epicerie'
+const categories = 
+
+[
+    { 
+        name:'Epicerie',
+        value:produits.filter(produit => produit.categorie === 'Epicerie').length
     },
 
     {
-        value:27,
-        name:'Boissons'
+        name:'Boissons',
+        value:produits.filter(produit => produit.categorie === 'Boissons').length
     },
-
+    
     {
-        value:20,
-        name:'Frais'
+        name:'Frais',
+        value:produits.filter(produit => produit.categorie === 'Frais').length
     },
-
+    
     {
-        value:15,
-        name:'Hygiène'
+        name:'Hygiène',
+        value:produits.filter(produit => produit.categorie === 'Hygiène').length
     }
-
+    
 ];
 
 const chartCategorie = echarts.init(document.getElementById("venteCategorie"));
@@ -83,19 +91,20 @@ const optionCategorie={
     tooltip:{
         trigger:'item'
     },
-
+    
     legend:{
         orient:'vertical',
         right:10,
         top:'center'
     },
-
+    
     series:[{
         type:'pie',
         radius:['55%','75%'],
         data:categories
     }]
-
+    
 };
 
 chartCategorie.setOption(optionCategorie);
+})

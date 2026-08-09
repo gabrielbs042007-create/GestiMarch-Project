@@ -42,8 +42,8 @@
       </div>
     </header>
 
-    <main class="contenu">
-      <div class="barre-outils">
+    <main  class="contenu">
+      <div  class="barre-outils">
         <div class="filtres">
           <span class="puce-filtre">Toutes les catégories</span>
           <span class="puce-filtre">Tous les statuts</span>
@@ -54,37 +54,39 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Importer / Exporter
           </button>
-          <button class="bouton bouton-primaire bouton-petit">
+          <button id="Nouveau-produit" class="bouton bouton-primaire bouton-petit">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             Ajouter un produit
+          </button>
+          <button id="cacher" class="p-1.5 rounded-[5px] font-bold text-amber-50 cursor-pointer text-[12.5px] bg-red-700 hover:bg-red-400 hidden">
+              Cacher le formulaire
           </button>
         </div>
       </div>
 
-      <div class="grille-stats" style="grid-template-columns:repeat(4,1fr); margin-bottom:20px;">
-        <div class="carte-stat"><div class="libelle-stat">Produits référencés</div><div class="valeur-stat">312</div></div>
-        <div class="carte-stat"><div class="libelle-stat">Catégories</div><div class="valeur-stat">9</div></div>
-        <div class="carte-stat"><div class="libelle-stat">Valeur du stock</div><div class="valeur-stat" style="font-size:20px;">18,4M</div></div>
+      <div class="grille-stats prod" style=" margin-bottom:20px; ">
+        <div class="carte-stat"><div class="libelle-stat">Produits référencés</div><div id="nbProduit" class="valeur-stat">312</div></div>
+        <div class="carte-stat"><div class="libelle-stat">Catégories</div><div id="nbCategorie" class="valeur-stat">9</div></div>
+        <div class="carte-stat"><div class="libelle-stat">Valeur du stock</div><div id="valTotal" class="valeur-stat" style="font-size:20px;">18,4M</div></div>
         <div class="carte-stat"><div class="libelle-stat">En rupture</div><div class="valeur-stat" style="color:rgb(99, 11, 11);">7</div></div>
       </div>
 
-      <div class="carte">
-        <div class="tableau-conteneur">
+      <div id="main" class="carte">
+        <div class="tableau-conteneur w-full">
           <table>
             <thead>
-              <tr>
-                <th><input type="checkbox"></th>
+              <tr class="text-center">
+                <th></th>
+                <th>ID</th>
                 <th>Produit</th>
+                <th class="nombre">Prix Unitaire</th>
                 <th>Catégorie</th>
-                <th class="nombre">Prix d'achat</th>
-                <th class="nombre">Prix de vente</th>
                 <th class="nombre">Stock</th>
-                <th>Statut</th>
                 <th></th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody id="tbodyProduit">
+              <!-- <tr>
                 <td><input type="checkbox"></td>
                 <td><div class="cellule-produit"><div class="vignette-produit">🧴</div><div><div class="nom-produit">Huile végétale 1L</div><div class="sous-texte-produit">6120012345678</div></div></div></td>
                 <td>Épicerie</td>
@@ -148,22 +150,57 @@
                   <button class="bouton bouton-fantome bouton-petit bouton-carre" aria-label="Modifier"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg></button>
                   <button class="bouton bouton-fantome bouton-petit bouton-carre" aria-label="Supprimer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
                 </div></td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </div>
-        <div class="flex elements-centres justifie-entre" style="padding:14px 20px; border-top:1px solid rgba(155, 150, 150, 0.685);">
-          <div class="flex ecart-8">
-            <button class="bouton bouton-contour bouton-petit">Précédent</button>
-            <button class="bouton bouton-contour bouton-petit">Suivant</button>
-          </div>
+        
+        <!-- ========== formulaire d'ajout de produits ============= -->
+        <div id="formAjoutProd" class="hidden carte carte-pad">
+          <h1 style="font-family:serif; font: size 25px; margin-bottom: 20px; color:gray; font-weight:700; text-align: center;">Ajouter un produit ici</h1>
+          
+          <form class="flex flex-col gap-4">
+            <div class="flex flex-col champ">
+              <label for="nom">PRODUIT :</label>
+              <input type="text" placeholder="le nom du produit" id="nom" required
+              class="border-2 border-gray-500/50 rounded-2xl p-2 mb-2">
+            </div>
+            <div class="flex flex-col champ">
+              <label for="PU">PRIX UNITAIRE :</label>
+              <input type="number" placeholder="le prix unitaire du produit" id="PU" required
+              class="border-2 border-gray-500/50 rounded-2xl p-2 mb-2">
+            </div>
+            <div class="flex flex-col champ">
+              <label for="quantite">QUANTITÉ :</label>
+              <input type="number" placeholder="la quantité du produit" id="quantite" required
+              class="border-2 border-gray-500/50 rounded-2xl p-2 mb-2">
+            </div>
+            <div class="flex flex-col champ">
+              <label for="categorie">CATEGORIE :</label>
+              <select name="categorie" id="categorie" required
+                class="border-2 border-gray-500/50 rounded-2xl p-2 mb-2 ">
+                <option value="epicerie">Épicerie</option>
+                <option value="boissons">Boissons</option>
+                <option value="hygiène">Hygiène</option>
+                <option value="frais">Frais</option>
+              </select>
+            </div>
+            <button type="submit" class="bouton bouton-primaire">Ajouter</button>
+          </form>
+
         </div>
       </div>
+
+      
     </main>
   </div>
 </div>
+<!-- ============ Lien de page pour MOBile ========= -->
+<div id="barreInf" class="barre-inferieur"></div>
+
 <script src="/ADD/js/index.js"></script>
 <script type="module" src="/ADD/js/aside.js"></script>
+<script type="module" src="/ADD/js/produits.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,93 @@
+[
+    {
+        "id": 1,
+        "nom": "Huile végétale",
+        "PU": 1500,
+        "quantite": 100,
+        "categorie": "Epicerie"
+    },
+    {
+        "id": 2,
+        "nom": "Riz parfumé",
+        "PU": 4250,
+        "quantite": 50,
+        "categorie": "Epicerie"
+    },
+    {
+        "id": 3,
+        "nom": "Pâtes alimentaires",
+        "PU": 2500,
+        "quantite": 75,
+        "categorie": "Epicerie"
+    },
+    {
+        "id": 4,
+        "nom": "Savon liquide",
+        "PU": 1200,
+        "quantite": 120,
+        "categorie": "Hygiène"
+    },
+    {
+        "id": 5,
+        "nom": "Shampoing",
+        "PU": 2000,
+        "quantite": 100,
+        "categorie": "Hygiène"
+    },
+    {
+        "id": 6,
+        "nom": "Dentifrice",
+        "PU": 1500,
+        "quantite": 80,
+        "categorie": "Hygiène"
+    },
+    {
+        "id": 7,
+        "nom": "Jus de fruits",
+        "PU": 1800,
+        "quantite": 60,
+        "categorie": "Boissons"
+    },
+    {
+        "id": 8,
+        "nom": "Soda",
+        "PU": 1200,
+        "quantite": 90,
+        "categorie": "Boissons"
+    },
+    {
+        "id": 9,
+        "nom": "Eau minérale",
+        "PU": 1000,
+        "quantite": 100,
+        "categorie": "Boissons"
+    },
+    {
+        "id": 10,
+        "nom": "Céréales",
+        "PU": 3500,
+        "quantite": 50,
+        "categorie": "Epicerie"
+    },
+    {
+        "id": 11,
+        "nom": "Farine de blé",
+        "PU": 5000,
+        "quantite": 23,
+        "categorie": "Frais"
+    },
+    {
+        "id": 12,
+        "nom": "Beurre",
+        "PU": 8000,
+        "quantite": 30,
+        "categorie": "Frais"
+    },
+    {
+        "id": 13,
+        "nom": "Lait",
+        "PU": 6000,
+        "quantite": 40,
+        "categorie": "Frais"
+    }
+]
