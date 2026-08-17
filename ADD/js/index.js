@@ -18,6 +18,7 @@ const admin = document.getElementById("admin")
             for (const role of roles) {
               if (role.checked) {
                 role.value
+                localStorage.setItem("role", role.value)
 
                 // connexion admin
                 if (role.value ==="admin" && email.value === users.Administrateur.email &&  password.value === users.Administrateur.password ) {
@@ -26,7 +27,7 @@ const admin = document.getElementById("admin")
                     window.location.href = 'pages/dashboard.html'
                   }, 2000);
                   aside.style.backgroundColor="red"
-                  console.log("Connexion Reussi @Admin");
+                  console.log("Connexion Reussi @Admin"); 
                 }
                 
                 // connexion stock
@@ -58,6 +59,40 @@ const admin = document.getElementById("admin")
         })
     });
   }
+
+  //  =============================== ACCES AUX PAGES ==================================
+
+  const acces = {
+    Admin: [
+      "caisse",
+      "clients",
+      "fournisseurs",
+      "parametres",
+      "produits",
+      "rapports",
+      "stock"
+    ],
+    Gestion : [
+      "produits",
+      "fournisseurs",
+      "stock",
+      "clients"
+    ],
+    Caissier : [
+      "caisse",
+      "produits",
+      "clients"
+    ]
+    }
+
+  const role = localStorage.getItem("role")
+  const pageP = document.querySelectorAll("[data-permission]")
+ pageP.forEach(lien =>{
+    const permission = lien.dataset.permission
+    if (!acces[role].includes(permission)) {
+      lien.style.display="none"
+    }
+ })
 
   // ======================= THEME ===========================
 

@@ -46,14 +46,16 @@
     <aside class="text-2xl font-semibold flex flex-col justify-between p-5 relative text-white visuel">
       <div>
         <div class="py-0 flex items-center gap-3 px-2 mb-5">
-          <div class="bg-green-600 text-white w-9 h-8.5 text-[17px] rounded-[9px] flex justify-center items-center ">GM</div>
+          <div class=" text-white w-20 h-20 text-[17px] rounded-[50%] flex justify-center items-center border-2 border-gray-500 ">
+            <img src="/ADD/img/logoNB.png" alt="">
+          </div>
           <div>
             <div class="font-medium ">GestiMarché</div>
             <div class="uppercase text-[10.5px] text-gray-300 mt-1">Point de vente & stock</div>
           </div>
         </div>
-        <p class="mt-14 text-[28px] leading-[1.3] text-green-950 coment">Logiciel de gestion <br> pour commerces et boutiques</p>
-        <p class="mt-14 text-[18px]  text-gray-300 text-center leading-8  comente">Produits, stock, caisse, clients et fournisseurs <br> — centralisés, à jour, accessibles à toute l'équipe.</p>
+        <p class="mt-14 text-[28px] leading-[1.3] text-green-950 coment">Appli de gestion <br> pour commerces et boutiques</p>
+        <p class="mt-14 text-[18px]  text-gray-300 text-center leading-8  comente">Produits, stock, caisse, clients et fournisseurs <br> centralisés, à jour, accessibles à toute l'équipe.</p>
         <!-- <svg class="mt-7 ml-35 w-36 h-36 text-center" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path d="M695.5 112.5h-391c-.6 82-67.2 148.3-149.5 149v241c0 190.5 345 385 345 385s345-194.5 345-385v-241c-82.3-.7-149-67-149.5-149Z" fill="#23704858"></path></svg> -->
       </div>
       <p class="text-gray-100/10 text-center text-[12px]">@gabriel_bs</p>
@@ -64,7 +66,7 @@
       <h2 class="text-2xl mt-1.5 font-[arial]">Connexion à votre compte</h2>
       <p class="text-[13.5px] mt-2 mb-6.5 ">Choisissez votre rôle puis saisissez vos identifiants pour accéder à votre espace.</p>
 
-      <form id="login-form" class="flex flex-col" action="#" method="post">
+      <form id="login-form" class="flex flex-col">
         <div class="flex gap-2 mb-5 bg-amber-100 p-1.5 rounded-[10px] " role="radiogroup" aria-label="Rôle">
           <label class="flex-1">
             <input class="hidden peer"  type="radio" name="role" value="admin" checked>
@@ -100,11 +102,13 @@
         </div>
 
         <div class="flex items-center justify-between mt-1 mb-5.5 ">
-          <label class="ligne-case"><input type="checkbox"> Se souvenir de moi</label>
+          <label class="text-[13.5px]"><input type="checkbox"> Se souvenir de moi</label>
           <a href="#" class="text-sm text-green-600 hover:text-green-800">Mot de passe oublié ?</a>
         </div>
 
-        <button type="submit" class="flex justify-center items-center bg-green-600 py-2.5 px-4 rounded-2xl cursor-pointer text-amber-50 transition duration-300 hover:scale-110 hover:bg-green-700 w-full ">Se connecter</button>
+        <button type="submit" class="flex justify-center items-center bg-green-600 py-2.5 px-4 rounded-2xl cursor-pointer text-amber-50 transition duration-300 hover:scale-110 hover:bg-green-700 w-full ">
+          Se connecter
+        </button>
       </form>
     </div>
   </div>

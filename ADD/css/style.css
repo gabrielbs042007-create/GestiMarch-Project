@@ -62,18 +62,17 @@ h1,h2,h3,h4{
   padding: 0 8px;
 }
 .marque-symbole{
-  width:34px;
-  height:34px;
-  border-radius: 9px;
-  background: linear-gradient(155deg, green, rgb(7, 17, 7));
+  width:47px;
+  height:47px;
+  border-radius: 50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-family: serif;
-  font-weight:700;
-  color: white;
-  font-size:15px;
   flex:none;
+  border: 3px solid rgb(183, 177, 177);
+}
+.marque-symbole img{
+  border-radius: 50%;
 }
 .marque-nom{
   font-family: serif;
@@ -226,6 +225,7 @@ h1,h2,h3,h4{
 .contenu{
   padding: 20px;
   flex:1;
+  margin-top: 65px;
 
 }
 
@@ -300,8 +300,7 @@ h1,h2,h3,h4{
   padding:0; 
 }
 
-
-/* ---- les Cartes ---- */
+/* ------------- les graphiques ---------------- */
 
 #venteSemaine, #venteCategorie{
   background: white;
@@ -310,19 +309,19 @@ h1,h2,h3,h4{
   box-shadow: 0 1px 2px rgba(15,61,46,.06);
   padding: 10px;
   height: 400px;
+  z-index: 20;
 }
-body.dark #venteSemaine, body.dark #venteCategorie{
-  background: #2c2c2c;
-  border-color: #444;
-  color: white;
-}
+
+/* ---- les Cartes ---- */
 .carte{
   background: white   ;
   border: 1px solid rgba(0, 128, 0, 0.267);
   border-radius: 12px;
   box-shadow: 0 0px 5px rgba(15,61,46,.06);
 }
-.carte-pad{ padding: 20px; }
+.carte-pad{ 
+  padding: 20px; 
+}
 .carte-entete{
   display:flex; 
   align-items:center; 
@@ -353,13 +352,18 @@ body.dark #venteSemaine, body.dark #venteCategorie{
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-bottom: 20px;
+  /* border: 1px solid ; */
+  padding: 15px;
+  border-radius: 25px;
+  background-color:#fff;
 }
 .carte-stat{
   padding: 18px 20px;
   border-radius: 16px;
   border: 1px solid rgba(198, 192, 192, 0.674);
-  background: white;
+  /* background: white; */
   box-shadow: 0 1px 4px rgb(182, 175, 175);
+  background: transparent;
 }
 .carte-stat .libelle-stat{
   font-size: 11.5px;
@@ -741,14 +745,19 @@ td.nombre, th.nombre{
 
 
 body.dark{
-    background:#0e0d0d;
+    background:#0f1316;
     color:white;
+    
 }
 
 body.dark .barre-laterale{
-    background:#1e1e1e;
+    background: #0a0f10;
     color:white;
-    border-right: 1px solid #444;
+    /* border-right: 1px solid #444; */
+}
+
+body.dark .grille-stats{
+  background:#151f2b;
 }
 
 body.light .carte{
@@ -756,16 +765,28 @@ body.light .carte{
 }
 /* Carte sombre */
 body.dark .carte, body.dark .ticket{
-    background:#2c2c2c;
+    background:#151f2b;
+    border-color: #323b3e;
 }
 body.dark .carte-stat{
-    background:#2c2c2c;
-    border-color: #444;
+    background:#151f2b;
+    border-color: #323b3e;
+    box-shadow: none;
+    box-shadow: 0 3px 5px #2c2c2c;
+}
+.body.dark h1, p{
+  color: #dee6e1;
 }
 
 body.dark header, body.dark .titre-page{
-  background:#1e1e1e;
+  background: #0a0f10;;
   color:white;
+  border-color: #323b3e;
+}
+body.dark #venteSemaine, body.dark #venteCategorie{
+  background:#151f2b;
+  border-color: #323b3e;
+  color: white;
 }
 
 body.dark input, 
@@ -773,7 +794,7 @@ body.dark textarea,
 body.dark select, 
 body.dark button, 
 body.dark .zone-recherche{
-  background:#2c2c2c;
+  background:#151f2b;
   color:white;
   border-color: #676565;
   border-color: 1px solid rgba(255, 255, 255, 0.267);
@@ -862,10 +883,28 @@ body.dark #cacher{
 
 /* ==================MOBILE PORTRAIT===================== */
 @media (max-width: 480px){
-
+  header{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    gap: 10px;
+  }
+  .descript{
+    width: 100%;
+  }
+  .sur-titre{
+    display: none;
+  }
+  .titre-barre-superieure{
+    width: 80%;
+    font-size: 20px;
+    text-align: justify;
+  }
+  .zone-recherche{
+    display: none;
+  }
   .grille-3{ 
-    grid-template-columns:1fr;
-  
+    grid-template-columns:1fr;  
   }
   .grille-stats{ grid-template-columns: 1fr; }
   .barre-inferieur{
@@ -881,13 +920,14 @@ body.dark #cacher{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
     padding: 10px;
+    z-index: 1000;
 
   }
 
   .body.dark .barre-inferieur{
-    background-color: #1e1e1e;
+    background: #1e1e1e;
   }
   .barre-inferieur a{
     color: white;
