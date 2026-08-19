@@ -17,7 +17,7 @@ fetch("/ADD/js/produits.json")
         subtext: "7 derniers jours",
         textStyle:{
             fontSize: 20,
-            color: "green",
+            color: "black",
             fontWeight: "bold"
         }
     },
@@ -82,7 +82,7 @@ const optionCategorie={
         text:'Ventes par catégorie',
         textStyle:{
             fontSize: 20,
-            color: "green",
+            color: "black",
             fontWeight: "bold"
         }
         

@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 
-*,*::before,*::after{
+*{
+  margin: 0;
+  /* padding: 0; */
   box-sizing: border-box; 
 }
 
@@ -16,13 +18,6 @@ body{
   transition:0.2s;   
 }
 
-h1,h2,h3,h4{
-  font-family: serif;
-  color: #0b2e23e3;
-  margin: 0 0 4px;
-  font-weight: 600;
-}
-
 /* #pages */
 .application{
   display: grid;
@@ -32,15 +27,16 @@ h1,h2,h3,h4{
 
 h1,h2,h3,h4{
   font-family: serif;
-  color: #0b2e23e3;
+  color: #070d43e3;
   margin: 0 0 4px;
   font-weight: 600;
 }
 
 /* ---- ========================= Sidebar ================ ---- */
 .barre-laterale{
-  background: rgb(1, 43, 1);
+  background: rgb(19, 48, 91);
   color: #EAF3EE;
+  /* color: #0a0f10; */
   padding: 22px 14px 18px;
   display:flex;
   flex-direction:column;
@@ -76,7 +72,7 @@ h1,h2,h3,h4{
 }
 .marque-nom{
   font-family: serif;
-  font-size: 17px;
+  font-size: 17px; 
   font-weight:600;
   color:#fff;
   letter-spacing:.2px;
@@ -121,12 +117,19 @@ h1,h2,h3,h4{
   background: rgba(255,255,255,.06); 
   color:#fff; 
 }
-.navigation a:active{
-  background: rgb(34, 193, 34);
-  color:#fff;
-}
+ 
 .navigation a.actif svg{ 
   opacity:1; 
+}
+.clients-Lien{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight:500;
+  color:#CFE4D7;
 }
 
 .pied-barre-laterale{
@@ -249,18 +252,18 @@ h1,h2,h3,h4{
   transform: translateY(1px); 
 }
 .bouton-primaire{ 
-  background: rgb(47, 202, 47); 
+  background: rgb(8, 51, 62); 
   color:#fff; 
 }
 .bouton-primaire:hover{ 
-  background:#278a4e; 
+  background:#0d69ab; 
 }
 .bouton-sombre{ 
-  background: rgb(2, 24, 2); 
+  background: rgb(3, 4, 39); 
   color:#fff; 
 }
 .bouton-sombre:hover{ 
-  background:#082018; 
+  background:#080c20; 
 }
 .bouton-contour{ 
   background: white; 
@@ -268,23 +271,23 @@ h1,h2,h3,h4{
   color: rgb(81, 80, 80); 
 }
 .bouton-contour:hover{ 
-  border-color: rgb(63, 237, 63); 
-  color: rgba(3, 37, 3, 0.267); 
+  border-color: rgb(63, 167, 237); 
+  color: rgba(3, 19, 37, 0.267); 
 }
 .bouton-fantome{ 
   background: transparent; 
   color: gray; 
 }
 .bouton-fantome:hover{ 
-  background: rgb(5, 244, 5); 
-  color: rgb(4, 41, 4); 
+  background: rgb(5, 152, 244); 
+  color: rgb(4, 14, 41); 
 }
 .bouton-danger{ 
   background: red; 
   color: rgba(121, 88, 6, 0.655); 
 }
 .bouton-danger:hover{ 
-  background:#f5cfcf; 
+  background:#4094d4; 
 }
 .bouton-petit{ 
   padding: 6px 11px; 
@@ -306,7 +309,7 @@ h1,h2,h3,h4{
   background: white;
   border: 1px solid rgb(194, 186, 186);
   border-radius: 16px;
-  box-shadow: 0 1px 2px rgba(15,61,46,.06);
+  box-shadow: 0 1px 2px rgba(15, 44, 61, 0.06);
   padding: 10px;
   height: 400px;
   z-index: 20;
@@ -315,7 +318,7 @@ h1,h2,h3,h4{
 /* ---- les Cartes ---- */
 .carte{
   background: white   ;
-  border: 1px solid rgba(0, 128, 0, 0.267);
+  border: 1px solid rgba(0, 51, 128, 0.267);
   border-radius: 12px;
   box-shadow: 0 0px 5px rgba(15,61,46,.06);
 }
@@ -331,7 +334,7 @@ h1,h2,h3,h4{
 }
 .carte-entete p{ 
   margin:2px 0 0; 
-  font-size:12.5px; color:rgb(22, 145, 22); 
+  font-size:12.5px; color:rgb(22, 55, 145); 
 }
 
 .ticket{
@@ -346,7 +349,7 @@ h1,h2,h3,h4{
   clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
 }
 
-/* ---- Grille de statistiques ---- */
+/* ---- Statistiques ---- */
 .grille-stats{
   display:grid;
   grid-template-columns: repeat(4, 1fr);
@@ -369,7 +372,7 @@ h1,h2,h3,h4{
   font-size: 11.5px;
   text-transform:uppercase;
   letter-spacing:.06em;
-  color: rgb(8, 82, 8);
+  color: rgb(9, 127, 111);
   font-weight:800;
   display:flex; 
   align-items:center; 
@@ -379,7 +382,7 @@ h1,h2,h3,h4{
   font-family: monospace;
   font-size: 26px;
   font-weight:600;
-  color: green;
+  color: rgb(126, 102, 45);
   margin-top:8px;
 }
 .carte-stat .variation-stat{
@@ -391,14 +394,14 @@ h1,h2,h3,h4{
   font-weight:600;
 }
 .variation-stat.hausse{ 
-  color: rgb(11, 237, 11); 
+  color: rgb(206, 176, 9); 
 }
 .variation-stat.baisse{ 
   color: rgb(168, 168, 15); 
 }
 .carte-stat.accent-foret{ 
-  background: rgb(2, 49, 2); 
-  border-color: green; 
+  background: rgb(2, 10, 49); 
+  border-color: rgb(0, 55, 128); 
 }
 .carte-stat.accent-foret .libelle-stat{ 
   color:#9FC3AC; 
@@ -437,7 +440,7 @@ tbody tr:last-child td{
   border-bottom:0; 
 }
 tbody tr:hover{ 
-  background: rgba(8, 185, 8, 0.479); 
+  background: rgba(8, 117, 185, 0.479); 
 }
 td.nombre, th.nombre{ 
   text-align:right; 
@@ -461,7 +464,8 @@ td.nombre, th.nombre{
 }
 .nom-produit{ 
   font-weight:600; 
-  color: green; 
+  /* color: rgb(0, 41, 128);  */
+  color: #0a0f10;
 }
 .sous-texte-produit{ 
   font-size:11.5px; 
@@ -486,11 +490,11 @@ td.nombre, th.nombre{
   border-radius:50%; 
 }
 .etiquette-ok{ 
-  background: greenyellow; 
-  color:#1F7A44; 
+  background: rgb(13, 88, 101); 
+  color:#1f5d7a; 
 }
 .etiquette-ok::before{ 
-  background: rgb(25, 199, 25); 
+  background: rgb(25, 164, 199); 
 }
 .etiquette-faible{ 
   background: rgb(239, 239, 70); 
@@ -520,7 +524,7 @@ td.nombre, th.nombre{
   border-radius:100px;
   font-size:11px;
   font-weight:600;
-  background: green;
+  background: rgb(0, 70, 128);
   color:#fff;
 }
 
@@ -594,10 +598,10 @@ td.nombre, th.nombre{
   background: rgba(209, 200, 200, 0.626); 
   border:0; margin: 18px 0; 
 }
-.separateur-pointille{ 
+/* .separateur-pointille{ 
   border-top: 1.5px dashed rgb(230, 221, 221); 
   margin: 14px 0; 
-}
+} */
 
 /* caisse */
 
@@ -629,7 +633,7 @@ td.nombre, th.nombre{
 }
 
 .article-caisse:hover{ 
-  border-color: rgb(40, 171, 40); 
+  border-color: rgb(19, 93, 89); 
   box-shadow: 0 8px 20px rgba(0,0,0,.12);
   transform: translateY(1px); 
 }
@@ -640,7 +644,9 @@ td.nombre, th.nombre{
   font-size:26px; 
 }
 .article-nom{ 
-  font-size:12.5px; font-weight:600; color: green; 
+  font-size:12.5px; 
+  font-weight:600; 
+  color: rgb(0, 62, 128); 
   line-height:1.3; 
 }
 .article-prix{ 
@@ -672,7 +678,7 @@ td.nombre, th.nombre{
 .ligne-panier .ligne-panier-nom{ 
   font-size:12.5px; 
   font-weight:600; 
-  color: green; 
+  color: rgb(0, 23, 128); 
 }
 .ligne-panier .ligne-panier-prix{ 
   font-size:11px; 
@@ -693,7 +699,7 @@ td.nombre, th.nombre{
   border-radius:50%; 
   border:0;
   background: rgba(230, 220, 220, 0.724); 
-  color: green;
+  color: rgb(0, 58, 128);
   font-weight:700; 
   cursor:pointer; 
   font-size:13px; 
@@ -933,7 +939,7 @@ body.dark #cacher{
     color: white;
   }
   .barre-inferieur a:hover{
-    color: rgb(47, 202, 47);
+    color: rgb(68, 47, 202);
   }
   #fermer{
     display: none;
